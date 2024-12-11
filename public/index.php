@@ -19,6 +19,9 @@ switch($page) {
     case 'logout':
         require_once '../src/auth/logout.php';
         break;
+    case 'profile':
+        require_once '../src/profile/edit.php';
+        break;
     default:
         require_once '../src/home.php';
 }
