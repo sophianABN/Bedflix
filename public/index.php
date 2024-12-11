@@ -2,14 +2,14 @@
 session_start();
 require_once '../config/database.php';
 
-// URL routing basique
+// Définir la page par défaut
 $page = $_GET['page'] ?? 'home';
 
-// Headers & navigation communes
+// Inclure le header
 require_once '../src/includes/header.php';
 
 // Router
-switch($page) {
+switch ($page) {
     case 'login':
         require_once '../src/auth/login.php';
         break;
@@ -26,4 +26,5 @@ switch($page) {
         require_once '../src/home.php';
 }
 
+// Inclure le footer
 require_once '../src/includes/footer.php';
