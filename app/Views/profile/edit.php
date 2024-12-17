@@ -75,54 +75,50 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <div class="row justify-content-center">
-    <div class="col-md-8">
-        <div class="card bg-dark text-white">
-            <div class="card-body">
-                <h2 class="card-title mb-4">Modifier mon profil</h2>
-                
-                <?php if ($error): ?>
-                    <div class="alert alert-danger"><?= htmlspecialchars($error) ?></div>
-                <?php endif; ?>
-                
-                <?php if ($success): ?>
-                    <div class="alert alert-success"><?= htmlspecialchars($success) ?></div>
-                <?php endif; ?>
-                
-                <div class="text-center mb-4">
-                    <img src="<?= htmlspecialchars($user['photo_profil_utilisateur'] ?? 'img/user-icon.png') ?>" 
-                         alt="Photo de profil" 
-                         class="rounded-circle"
-                         style="width: 150px; height: 150px; object-fit: cover;">
-                </div>
-                
-                <form method="POST" enctype="multipart/form-data">
-                    <div class="mb-3">
-                        <label for="photo" class="form-label">Photo de profil</label>
-                        <input type="file" class="form-control" id="photo" name="photo" accept="image/*">
-                    </div>
-                    
-                    <div class="mb-3">
-                        <label for="nom" class="form-label">Nom</label>
-                        <input type="text" class="form-control" id="nom" name="nom" 
-                               value="<?= htmlspecialchars($user['nom_utilisateur']) ?>" required>
-                    </div>
-                    
-                    <div class="mb-3">
-                        <label for="prenom" class="form-label">Prénom</label>
-                        <input type="text" class="form-control" id="prenom" name="prenom" 
-                               value="<?= htmlspecialchars($user['prenom_utilisateur']) ?>" required>
-                    </div>
-                    
-                    <div class="mb-3">
-                        <label for="pseudo" class="form-label">Pseudo</label>
-                        <input type="text" class="form-control" id="pseudo" name="pseudo" 
-                               value="<?= htmlspecialchars($user['pseudo_utilisateur']) ?>" required>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary">Mettre à jour</button>
-                </form>
+    <div class="col-md-6">
+        <h2 class="text-center mb-4">Modifier mon profil</h2>
+
+        <?php if (isset($success)): ?>
+            <div class="alert alert-success"><?= htmlspecialchars($success) ?></div>
+        <?php endif; ?>
+
+        <?php if (isset($error)): ?>
+            <div class="alert alert-danger"><?= htmlspecialchars($error) ?></div>
+        <?php endif; ?>
+
+        <form method="POST" action="/profile" enctype="multipart/form-data">
+            <div class="text-center mb-4">
+                <img src="<?= htmlspecialchars($user['photo_profil_utilisateur']) ?>" 
+                     alt="Photo de profil" 
+                     class="rounded-circle"
+                     style="width: 150px; height: 150px; object-fit: cover;">
             </div>
-        </div>
+
+            <div class="mb-3">
+                <label for="photo" class="form-label">Photo de profil</label>
+                <input type="file" class="form-control" id="photo" name="photo" accept="image/*">
+            </div>
+
+            <div class="mb-3">
+                <label for="nom" class="form-label">Nom</label>
+                <input type="text" class="form-control" id="nom" name="nom" 
+                       value="<?= htmlspecialchars($user['nom_utilisateur']) ?>" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="prenom" class="form-label">Prénom</label>
+                <input type="text" class="form-control" id="prenom" name="prenom" 
+                       value="<?= htmlspecialchars($user['prenom_utilisateur']) ?>" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="pseudo" class="form-label">Pseudo</label>
+                <input type="text" class="form-control" id="pseudo" name="pseudo" 
+                       value="<?= htmlspecialchars($user['pseudo_utilisateur']) ?>" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Mettre à jour</button>
+        </form>
     </div>
 </div>
 

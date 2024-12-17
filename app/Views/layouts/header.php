@@ -79,58 +79,57 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="index.php">
-                <img src="img/bedflix-logo.png" alt="Bedflix Logo">
+            <a class="navbar-brand" href="/">
+                <img src="/img/bedflix-logo.png" alt="Bedflix" height="40">
             </a>
             
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
-            <div class="collapse navbar-collapse" id="navbarContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Menu principal -->
+                <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">Accueil</a>
+                        <a class="nav-link" href="/">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?page=series">Séries</a>
+                        <a class="nav-link" href="/films">Films</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?page=films">Films</a>
+                        <a class="nav-link" href="/series">Séries</a>
                     </li>
                 </ul>
 
-                <?php if(isset($_SESSION['user'])): ?>
-                    <form class="search-form me-3">
-                        <i class="fas fa-search"></i>
-                        <input type="search" class="form-control" placeholder="Titre, genres, ...">
-                    </form>
-                    
-                    <div class="d-flex align-items-center">
-                        <a href="#" class="nav-link me-3">
-                            <i class="fas fa-bell notification-icon"></i>
-                        </a>
-                        <div class="dropdown">
-                            <img src="<?= htmlspecialchars($_SESSION['user']['photo_profil_utilisateur'] ?? 'img/user-icon.png') ?>" 
-                                 alt="Profile" 
-                                 class="profile-icon" 
-                                 role="button" 
-                                 data-bs-toggle="dropdown">
-                            <ul class="dropdown-menu dropdown-menu-end bg-dark">
-                                <li><a class="dropdown-item text-white" href="index.php?page=profile">Profil</a></li>
-                                <li><a class="dropdown-item text-white" href="index.php?page=logout">Déconnexion</a></li>
+                <!-- Menu utilisateur -->
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <?php if (isset($_SESSION['user'])): ?>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                                <img src="/<?= htmlspecialchars($_SESSION['user']['photo_profil_utilisateur']) ?>" 
+                                     alt="Photo de profil" 
+                                     class="rounded-circle me-2"
+                                     style="width: 32px; height: 32px; object-fit: cover;">
+                                <?= htmlspecialchars($_SESSION['user']['pseudo_utilisateur']) ?>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="/profile">Mon Profil</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="/logout">Déconnexion</a></li>
                             </ul>
-                        </div>
-                    </div>
-                <?php else: ?>
-                    <div class="d-flex">
-                        <a class="nav-link me-3" href="index.php?page=login">Connexion</a>
-                        <a class="nav-link" href="index.php?page=register">Inscription</a>
-                    </div>
-                <?php endif; ?>
+                        </li>
+                    <?php else: ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">Connexion</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/register">Inscription</a>
+                        </li>
+                    <?php endif; ?>
+                </ul>
             </div>
         </div>
-    </nav>
+    </header>
     <div class="container mt-4"> 

@@ -1,4 +1,4 @@
-    </div>
+</div>
     <footer class="mt-5 pb-4">
         <div class="container text-center">
             <!-- Réseaux sociaux -->
