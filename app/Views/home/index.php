@@ -52,6 +52,6 @@
     <div class="text-center text-white">
         <h1>Bienvenue sur Bedflix</h1>
         <p>Connectez-vous pour accéder à notre catalogue.</p>
-        <a href="index.php?page=login" class="btn btn-danger">Se connecter</a>
+        <a href="/login" class="btn btn-danger">Se connecter</a>
     </div>
 <?php endif; ?> 

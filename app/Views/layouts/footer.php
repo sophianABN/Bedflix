@@ -1,5 +1,5 @@
 </div>
-    <footer class="mt-5 pb-4">
+    <footer class="footer">
         <div class="container text-center">
             <!-- Réseaux sociaux -->
             <div class="social-icons mb-3">
@@ -26,17 +26,30 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <style>
+        /* Ajout des styles pour le footer */
+        html {
+            height: 100%;
+        }
+        body {
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .container {
+            flex: 1 0 auto;
+        }
+        .footer {
+            flex-shrink: 0;
+            border-top: 1px solid #333;
+            padding: 20px 0;
+            margin-top: auto;
+        }
         .social-icons a {
             font-size: 1.5rem;
             transition: color 0.3s;
         }
         .social-icons a:hover {
             color: #e50914 !important;
-        }
-        footer {
-            border-top: 1px solid #333;
-            margin-top: 100px;
-            padding-top: 20px;
         }
     </style>
 </body>
