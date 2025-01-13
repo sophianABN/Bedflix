@@ -34,17 +34,6 @@ cp .env.example .env
 mysql -u votre_utilisateur -p < db/bedflix.sql
 ```
 
-## 🛠️ Structure du Projet
-
-```
-bedflix/
-├── config/         # Configuration (BDD, etc.)
-├── db/            # Fichiers SQL
-├── public/        # Point d'entrée de l'application
-├── src/           # Code source
-└── vendor/        # Dépendances
-```
-
 ## 🔑 Variables d'Environnement
 
 Créez un fichier `.env` à la racine du projet avec les variables suivantes :
